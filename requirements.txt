@@ -1,0 +1,11 @@
+Django>=3.0,<4.0
+psycopg2-binary>=2.8
+petl
+requests
+python-dateutil
+
+# Dev-dependencies
+django-extensions
+ipdb
+pyreadline
+ipython
