@@ -10,10 +10,10 @@ register = template.Library()
 @register.simple_tag
 def get_values_url(value: str, request: WSGIRequest) -> str:
     """Get new URL based on whether or not param is in kwarg"""
-    values_params: str = request.GET.get('values', "")
+    values_params: str = request.GET.get("values", "")
     values_list: List[str] = []
     if values_params:
-        values_list = values_params.split(',')
+        values_list = values_params.split(",")
         if value in values_list:
             values_list.remove(value)
         else:
