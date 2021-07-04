@@ -1,0 +1,19 @@
+
+{% extends 'bootstrap4/bootstrap4.html' %}
+
+{% load bootstrap4 %}
+
+{% block bootstrap4_content %}
+    <div class="container">
+        <h1>{% block title %}SWAPI Explorer{% endblock %}</h1>
+
+        <p>
+            <a href="{% url 'collections' %}">Collections</a>
+        </p>
+
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+{% endblock %}

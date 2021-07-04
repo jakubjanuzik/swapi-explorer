@@ -11,4 +11,4 @@ class Homeworld(models.Model):
 class Collection(models.Model):
     """Collection model."""
     created_at = models.DateTimeField(auto_now_add=True)
-    filename = models.CharField(max_length=128, unique=True)
+    csv_file = models.FileField(upload_to='csvs/')

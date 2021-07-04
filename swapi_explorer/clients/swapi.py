@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Optional
 
 import requests
+from django.core.files import File
 from petl.io.json import DictsView
 from requests import Response
 from dateutil import parser
@@ -81,7 +82,8 @@ class SWAPIClient:
         table: DictsView = petl.fromdicts(people_data)
         petl.tocsv(table, filename)
 
-        Collection.objects.create(filename=filename)
+        with open(filename) as fp:
+            Collection.objects.create(csv_file=File(fp))
 
     def fetch_people(self) -> None:
         """Fetch people using /api/people endpoint and save contents to the

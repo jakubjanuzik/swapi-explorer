@@ -3,6 +3,7 @@ psycopg2-binary>=2.8
 petl
 requests
 python-dateutil
+django-bootstrap4
 
 # Dev-dependencies
 django-extensions
