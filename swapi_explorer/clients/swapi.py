@@ -1,16 +1,16 @@
 """Star Wars API client module."""
+import csv
 import uuid
 from datetime import datetime
 from typing import Optional
 
+import petl
 import requests
+from dateutil import parser
 from django.core.files import File
+from explorer.models import Collection, Homeworld
 from petl.io.json import DictsView
 from requests import Response
-from dateutil import parser
-from explorer.models import Homeworld, Collection
-import petl
-import csv
 
 
 class SWAPIClient:

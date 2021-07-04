@@ -3,16 +3,14 @@ import math
 from typing import List, Optional
 
 import petl
+from clients.swapi import SWAPIClient
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import DetailView, ListView, TemplateView
-
 from explorer.models import Collection
 from petl.io.csv_py3 import CSVView
 from petl.util.base import DataView
-
-from clients.swapi import SWAPIClient
 
 
 def index(request: WSGIRequest) -> HttpResponse:
