@@ -1,0 +1,28 @@
+{% extends 'explorer/base.html' %}
+
+{% block content %}
+{{ object.csv_file}}
+<table class="table">
+  <thead>
+    <tr>
+        {% for header in headers %}
+        <th>{{ header }}</th>
+        {% endfor %}
+
+    </tr>
+  </thead>
+  <tbody>
+   {% for person in data %}
+    <tr>
+        {% for field in person %}
+            <td>{{ field }}</td>
+        {% endfor %}
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+{% if has_next %}
+    <a href="{% url 'collection-view' pk=object.pk %}?page={{ next_page }}">Load More</a>
+{% endif %}
+{% endblock %}
