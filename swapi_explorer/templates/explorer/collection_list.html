@@ -1,7 +1,12 @@
 {% extends 'explorer/base.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
-
+<form method="post" class="form">
+        {% csrf_token %}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">Fetch collection</button>
+    {% endbuttons %}
+</form>
 <table class="table">
   <thead>
     <tr>

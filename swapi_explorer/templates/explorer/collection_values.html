@@ -1,11 +1,10 @@
 {% extends 'explorer/base.html' %}
-
+{% load explorer %}
 {% block content %}
 {{ object.csv_file}}
 <div class="list-group list-group-horizontal">
-
     {% for header in headers %}
-        <a href="{% url 'collection-values-view' pk=object.pk %}" class="list-group-item list-group-item-action">{{ header }}</a>
+        <a href="{% get_values_url value=header request=request %}" class="list-group-item list-group-item-action {% if header in request.get_full_path %}active{% endif %}">{{ header }}</a>
     {% endfor %}
 </div>
 <div>
@@ -13,7 +12,7 @@
 <table class="table">
   <thead>
     <tr>
-        {% for header in headers %}
+        {% for header in table_headers %}
         <th>{{ header }}</th>
         {% endfor %}
 
@@ -31,7 +30,4 @@
 </table>
 </div>
 
-{% if has_next %}
-    <a href="{% url 'collection-view' pk=object.pk %}?page={{ next_page }}">Load More</a>
-{% endif %}
 {% endblock %}
